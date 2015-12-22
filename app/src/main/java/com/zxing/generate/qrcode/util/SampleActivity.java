@@ -2,6 +2,7 @@ package com.zxing.generate.qrcode.util;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -37,8 +38,10 @@ public class SampleActivity extends Activity {
                 final String content = "http://www.baidu.com";
                 final int qrWidth = 500;
                 final int qrHeight = 500;
+                final Bitmap centerLogo = ((BitmapDrawable)activity.
+                        getResources().getDrawable(R.drawable.ic_launcher)).getBitmap();
                 final Bitmap qrImage = new
-                        GenerateQrCodeUtil().createQRImage(content, qrWidth, qrHeight);
+                        GenerateQrCodeUtil().createQRImage(content, qrWidth, qrHeight, centerLogo);
                 activity.mImageView.setImageBitmap(qrImage);
             }
         }
